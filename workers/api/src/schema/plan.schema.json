@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WorkoutPlan",
+  "type": "object",
+  "required": ["week", "workouts", "nutrition"],
+  "properties": {
+    "week": { "type": "integer", "minimum": 1 },
+    "workouts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["day", "focus", "durationMinutes"],
+        "properties": {
+          "day": { "type": "string" },
+          "focus": { "type": "string" },
+          "durationMinutes": { "type": "integer", "minimum": 10 },
+          "equipment": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "nutrition": {
+      "type": "object",
+      "required": ["calories", "proteinGrams"],
+      "properties": {
+        "calories": { "type": "integer", "minimum": 1200 },
+        "proteinGrams": { "type": "integer", "minimum": 60 },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

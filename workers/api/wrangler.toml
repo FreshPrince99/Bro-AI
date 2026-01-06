@@ -1,0 +1,20 @@
+name = "bro-ai-worker"
+main = "./src/index.ts"
+compatibility_date = "2024-10-22"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+[vars]
+# Base URL of the frontend for links in emails
+APP_BASE_URL = "http://localhost:3000"
+
+[[durable_objects.bindings]]
+name = "USER_COACH"
+class_name = "UserCoachDO"
+
+[triggers]
+crons = ["0 9 * * MON"]
+
+[[migrations]]
+tag = "v1"
+new_classes = ["UserCoachDO"]
