@@ -1,0 +1,14 @@
+# Cloudflare AI binding is configured via wrangler.toml
+# AI={{ account_id }}/workers-ai
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GOOGLE_REDIRECT_URI=http://127.0.0.1:8787/api/auth/callback
+
+EMAIL_PROVIDER=resend
+RESEND_API_KEY=
+FROM_EMAIL=coach@example.com
+TO_EMAIL=user@example.com
+
+# Optional override for app links in emails
+APP_BASE_URL=http://localhost:3000

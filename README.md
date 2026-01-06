@@ -252,3 +252,35 @@ npx wrangler secret put RESEND_API_KEY
 ## Notes on Safety
 
 This app is not medical advice. It provides general fitness guidance and encourages consulting professionals for injuries/health conditions.
+## Local Quickstart
+
+The repo now contains a minimal starter for both the Worker API and the Pages frontend. Secrets stay out of the repo—copy the sample env files and fill them in locally.
+
+### Worker (API + Durable Object + Cron)
+
+```bash
+cd workers/api
+npm install
+cp .dev.vars.example .dev.vars # fill in Google + email keys
+npm run dev
+```
+
+This runs the Worker at `http://127.0.0.1:8787`. The stub routes are all JSON and write to a `UserCoachDO` Durable Object. Hook up Workers AI, Google OAuth, and Calendar by swapping the placeholder logic in `src/index.ts`.
+
+### Pages frontend (React + Vite)
+
+```bash
+cd apps/web
+npm install
+cp .env.example .env # update the API base URL if needed
+npm run dev
+```
+
+Visit `http://localhost:3000` to exercise the template. The UI calls `/api/chat` and `/api/plan` and renders the mock responses from the Worker. Adjust `VITE_API_BASE_URL` if you deploy the Worker somewhere else.
+
+### Deployment checklist
+
+- Update `workers/api/wrangler.toml` with your Cloudflare account + Workers AI binding.
+- Add the Google OAuth client ID/secret as Wrangler secrets for production.
+- Point the Pages environment variables at your Worker base URL so the frontend knows where to fetch.
+- Extend `UserCoachDO` if you want to store more history or plan versions.

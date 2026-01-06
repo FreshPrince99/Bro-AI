@@ -1,0 +1,3 @@
+Generate a 7-day workout and nutrition plan based on the stored user profile.
+Return JSON that conforms to schema/plan.schema.json.
+Each workout should include day, focus, durationMinutes, and equipment if relevant.
