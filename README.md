@@ -1,6 +1,6 @@
 # Bro AI (Cloudflare Workers AI + Durable Objects + Google Calendar)
 
-Workout Coach AI is a lightweight AI agent that:
+Bro AI is a lightweight AI agent that:
 - chats with you to understand your fitness goals, constraints, and preferences
 - generates a weekly workout + nutrition plan (as structured JSON)
 - syncs workouts to **Google Calendar**
